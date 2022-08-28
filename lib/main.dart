@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:starwars/data/api_service.dart';
-import 'package:starwars/screens/pagina_inicial.dart';
+import 'package:starwars/data/requisicao_api.dart';
+import 'package:starwars/screens/carregar_dados.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
-    create: (context) => ApiService(),
+    create: (context) => RequisicaoApi(),
     child: const MyApp(),
   ));
 }
@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: PaginaInicial(),
+    return MaterialApp(
+      home: CarregarDados(),
     );
   }
 }
