@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:starwars/components/card_componente.dart';
+import 'package:starwars/components/topo_do_app..dart';
 import 'package:starwars/data/api_dados.dart';
 
 class PaginaInicial extends StatelessWidget {
   PaginaInicial({Key? key}) : super(key: key);
+
   late ApiDados dados;
 
   @override
@@ -12,19 +14,21 @@ class PaginaInicial extends StatelessWidget {
     dados = context.watch<ApiDados>();
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Center(
-          child: Text('StarWars'),
-        ),
-      ),
+      appBar: TopoDoApp(apiDados: dados, context: context),
       body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
         child: Builder(builder: (context) {
-          return ListView.builder(
-            itemCount: dados.listaDeNomes.length,
-            itemBuilder: (_, index) {
-              return CardComponente(titulo: dados.listaDeNomes[index]);
-            },
-          );
+          return dados.listaCategoria.isEmpty
+              ? const Center(
+                  child: Text('Nenhum item favoritado'),
+                )
+              : ListView.builder(
+                  itemCount: dados.listaCategoria.length,
+                  itemBuilder: (_, index) {
+                    return CardComponente(titulo: dados.listaCategoria[index]);
+                  },
+                );
         }),
       ),
     );

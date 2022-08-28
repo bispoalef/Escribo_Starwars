@@ -4,23 +4,48 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class ApiDados extends ChangeNotifier {
-  static const url_base = 'https://swapi.dev/api/';
-
   List<dynamic> listaDeNomes = [];
+  List<dynamic> listaDeFilmes = [];
+  List<dynamic> listaDeFavoritos = [];
+  List<dynamic> listaCategoria = [];
+  String? categoriaEscolhida;
 
   carregarDados() async {
-    await _buscarNomes();
+    await _buscarNaApi('people', 'name', listaDeNomes);
+    await _buscarNaApi('films', 'title', listaDeFilmes);
   }
 
-  _buscarNomes() async {
-    var url = Uri.parse('$url_base/people');
+  _buscarNaApi(String tipo, categoria, List tipoDeLista) async {
+    var url = Uri.parse('https://swapi.dev/api/$tipo');
 
     var response = await http.get(url);
 
     final jsonResponse = jsonDecode(response.body);
     final List<dynamic> lista = jsonResponse['results'];
     for (var element in lista) {
-      listaDeNomes.add(element['name']);
+      tipoDeLista.add(element[categoria]);
+    }
+  }
+
+  void categoria(String categoria) {
+    switch (categoria) {
+      case 'filme':
+        listaCategoria = listaDeFilmes;
+        categoriaEscolhida = categoria;
+        notifyListeners();
+        break;
+      case 'personagem':
+        listaCategoria = listaDeNomes;
+        categoriaEscolhida = categoria;
+        notifyListeners();
+        break;
+      case 'favorito':
+        listaCategoria = listaDeFavoritos;
+        categoriaEscolhida = categoria;
+        notifyListeners();
+        break;
+      default:
+        notifyListeners();
     }
   }
 }

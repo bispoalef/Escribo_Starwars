@@ -21,7 +21,13 @@ class CardComponente extends StatelessWidget {
             width: 150,
             height: 50,
             child: Center(
-              child: Text(titulo),
+              child: Text(
+                titulo,
+                style: const TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           ),
           Material(
@@ -31,7 +37,7 @@ class CardComponente extends StatelessWidget {
               onTap: () {},
               child: Ink(
                 child: Center(
-                  child: icone(),
+                  child: icone(dados, titulo),
                 ),
               ),
             ),
@@ -41,13 +47,22 @@ class CardComponente extends StatelessWidget {
     );
   }
 
-  Icon icone() {
-    return const Icon(Icons.favorite);
+  Icon icone(ApiDados dados, String title) {
+    if (dados.listaDeFavoritos.contains(title)) {
+      return const Icon(
+        Icons.favorite,
+        color: Colors.red,
+      );
+    } else {
+      return const Icon(Icons.favorite_border);
+    }
   }
 
   cor(ApiDados item, String titulo) {
     if (item.listaDeNomes.contains(titulo)) {
       return Colors.green;
+    } else {
+      return Colors.red;
     }
   }
 }
