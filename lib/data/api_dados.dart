@@ -29,17 +29,17 @@ class ApiDados extends ChangeNotifier {
 
   void categoria(String categoria) {
     switch (categoria) {
-      case 'filme':
+      case 'Filme':
         listaCategoria = listaDeFilmes;
         categoriaEscolhida = categoria;
         notifyListeners();
         break;
-      case 'personagem':
+      case 'Personagem':
         listaCategoria = listaDeNomes;
         categoriaEscolhida = categoria;
         notifyListeners();
         break;
-      case 'favorito':
+      case 'Favorito':
         listaCategoria = listaDeFavoritos;
         categoriaEscolhida = categoria;
         notifyListeners();

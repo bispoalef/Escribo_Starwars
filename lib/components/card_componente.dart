@@ -34,8 +34,17 @@ class CardComponente extends StatelessWidget {
             shape: const CircleBorder(),
             child: InkWell(
               borderRadius: BorderRadius.circular(15),
-              onTap: () {},
+              onTap: () {
+                if (!dados.listaDeFavoritos.contains(titulo)) {
+                  dados.listaDeFavoritos.add(titulo);
+                  dados.notifyListeners();
+                } else {
+                  (dados.listaDeFavoritos.remove(titulo));
+                  dados.notifyListeners();
+                }
+              },
               child: Ink(
+                decoration: BoxDecoration(color: cor(dados, titulo)),
                 child: Center(
                   child: icone(dados, titulo),
                 ),
@@ -49,9 +58,9 @@ class CardComponente extends StatelessWidget {
 
   Icon icone(ApiDados dados, String title) {
     if (dados.listaDeFavoritos.contains(title)) {
-      return const Icon(
+      return Icon(
         Icons.favorite,
-        color: Colors.red,
+        color: Colors.blueGrey.shade400,
       );
     } else {
       return const Icon(Icons.favorite_border);
