@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:starwars/data/requisicao_api.dart';
+import 'package:starwars/data/api_dados.dart';
 import 'package:starwars/screens/paginas/pagina_inicial.dart';
 
 class CarregarDados extends StatelessWidget {
-   CarregarDados({Key? key}) : super(key: key);
-  late RequisicaoApi dados;
+  CarregarDados({Key? key}) : super(key: key);
+  late ApiDados dados;
   @override
   Widget build(BuildContext context) {
-    dados = context.watch<RequisicaoApi>();
+    dados = context.watch<ApiDados>();
     dados.carregarDados().then(
           (_) => Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) => const PaginaInicial(),
+              builder: (context) => PaginaInicial(),
             ),
           ),
         );

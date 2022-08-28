@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
-class RequisicaoApi extends ChangeNotifier {
+class ApiDados extends ChangeNotifier {
   static const url_base = 'https://swapi.dev/api/';
 
   List<dynamic> listaDeNomes = [];
