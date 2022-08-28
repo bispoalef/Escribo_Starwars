@@ -13,23 +13,26 @@ class PaginaInicial extends StatelessWidget {
   Widget build(BuildContext context) {
     dados = context.watch<ApiDados>();
 
-    return Scaffold(
-      appBar: TopoDoApp(apiDados: dados, context: context),
-      body: SizedBox(
-        width: double.infinity,
-        height: double.infinity,
-        child: Builder(builder: (context) {
-          return dados.listaCategoria.isEmpty
-              ? const Center(
-                  child: Text('Nenhum item favoritado'),
-                )
-              : ListView.builder(
-                  itemCount: dados.listaCategoria.length,
-                  itemBuilder: (_, index) {
-                    return CardComponente(titulo: dados.listaCategoria[index]);
-                  },
-                );
-        }),
+    return SafeArea(
+      child: Scaffold(
+        appBar: TopoDoApp(apiDados: dados, context: context),
+        body: SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Builder(builder: (context) {
+            return dados.listaCategoria.isEmpty
+                ? const Center(
+                    child: Text('Nenhum item favoritado'),
+                  )
+                : ListView.builder(
+                    itemCount: dados.listaCategoria.length,
+                    itemBuilder: (_, index) {
+                      return CardComponente(
+                          titulo: dados.listaCategoria[index]);
+                    },
+                  );
+          }),
+        ),
       ),
     );
   }
