@@ -1,17 +1,7 @@
 # starwars
 
-A new Flutter project.
 
-## Getting Started
+# Aplicativo gerado para o processo seletivo, para rodar deve-se instalar o "appapk" localizado na raiz do projeto ou executando o modo run debug no editor de codigos.
 
-This project is a starting point for a Flutter application.
+# Utilizando as bibliotecas solicitadas (falando apenas alguns justes na execução do bando de dados sqflite)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Escribo_Starwars
