@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:starwars/data/api_dados.dart';
+import 'package:starwars/data/sqflite.dart';
 
-class CardComponente extends StatelessWidget {
+class ListarComponentes extends StatelessWidget {
   String titulo;
-  CardComponente({required this.titulo, Key? key}) : super(key: key);
+  ListarComponentes({required this.titulo, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +43,11 @@ class CardComponente extends StatelessWidget {
                   onTap: () {
                     if (!dados.listaDeFavoritos.contains(titulo)) {
                       dados.listaDeFavoritos.add(titulo);
+                      Sqflte.instance.add(titulo);
                       dados.notifyListeners();
                     } else {
                       (dados.listaDeFavoritos.remove(titulo));
+                      Sqflte.instance.add(titulo);
                       dados.notifyListeners();
                     }
                   },

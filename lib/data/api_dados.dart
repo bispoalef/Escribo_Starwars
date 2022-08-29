@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:starwars/data/sqflite.dart';
 
 class ApiDados extends ChangeNotifier {
   List<dynamic> listaDeNomes = [];
@@ -13,6 +14,12 @@ class ApiDados extends ChangeNotifier {
   carregarDados() async {
     await _buscarNaApi('people', 'name', listaDeNomes);
     await _buscarNaApi('films', 'title', listaDeFilmes);
+    await _carregarSql();
+  }
+
+  _carregarSql() async {
+    print('test');
+    print(Sqflte.instance.getFavoritos());
   }
 
   _buscarNaApi(String tipo, categoria, List tipoDeLista) async {

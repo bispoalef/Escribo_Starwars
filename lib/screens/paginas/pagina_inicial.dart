@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:starwars/components/card_componente.dart';
+import 'package:starwars/components/listar_componentes.dart';
 import 'package:starwars/components/topo_do_app..dart';
 import 'package:starwars/data/api_dados.dart';
 
@@ -27,7 +27,7 @@ class PaginaInicial extends StatelessWidget {
                 : ListView.builder(
                     itemCount: dados.listaCategoria.length,
                     itemBuilder: (_, index) {
-                      return CardComponente(
+                      return ListarComponentes(
                           titulo: dados.listaCategoria[index]);
                     },
                   );
