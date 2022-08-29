@@ -73,14 +73,18 @@ class TopoDoApp extends PreferredSize {
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: const [
-                    btn(categoria: 'Filme'),
-                    btn(categoria: 'Personagem'),
-                    btn(categoria: 'Favorito'),
-                  ],
-                )
+                (apiDados == null)
+                    ? Container(
+                        height: 50,
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: const [
+                          btn(categoria: 'Filme'),
+                          btn(categoria: 'Personagem'),
+                          btn(categoria: 'Favorito'),
+                        ],
+                      )
               ],
             ),
           ),

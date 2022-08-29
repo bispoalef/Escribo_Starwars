@@ -9,15 +9,17 @@ class PaginaWebView extends StatelessWidget {
   Widget build(BuildContext context) {
     GlobalKey<ScaffoldState> scafoldKey = GlobalKey<ScaffoldState>();
 
-    return Scaffold(
-      key: scafoldKey,
-      appBar: TopoDoApp(
-        apiDados: null,
-        context: context,
-      ),
-      body: InAppWebView(
-        initialUrlRequest: URLRequest(
-          url: Uri.parse('https://www.starwars.com/community'),
+    return SafeArea(
+      child: Scaffold(
+        key: scafoldKey,
+        appBar: TopoDoApp(
+          apiDados: null,
+          context: context,
+        ),
+        body: InAppWebView(
+          initialUrlRequest: URLRequest(
+            url: Uri.parse('https://www.starwars.com/community'),
+          ),
         ),
       ),
     );

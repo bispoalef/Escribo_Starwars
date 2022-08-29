@@ -18,9 +18,11 @@ class CarregarDados extends StatelessWidget {
           ),
         );
 
-    return const Scaffold(
-      body: Center(
-        child: CircularProgressIndicator(),
+    return const SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
       ),
     );
   }

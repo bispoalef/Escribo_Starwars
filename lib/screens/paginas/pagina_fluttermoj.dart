@@ -7,15 +7,21 @@ class PaginaFlutterMoji extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: TopoDoApp(apiDados: null, context: context),
-      body: Container(
-        child: Column(children: [
-          SizedBox(
-            child: FluttermojiCircleAvatar(),
-          ),
-          FluttermojiCustomizer(),
-        ]),
+    return SafeArea(
+      child: Scaffold(
+        appBar: TopoDoApp(apiDados: null, context: context),
+        body: Container(
+          child: Column(children: [
+            SizedBox(
+              height: 100,
+              child: FluttermojiCircleAvatar(),
+            ),
+            Container(
+              height: 50,
+            ),
+            FluttermojiCustomizer(),
+          ]),
+        ),
       ),
     );
   }
