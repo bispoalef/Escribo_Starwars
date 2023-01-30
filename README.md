@@ -1,7 +1,7 @@
-# starwars
+# Aplicativo Star Wars
 
+Este projeto foi criado como parte de um processo seletivo e tem como objetivo exibir informações sobre o universo de Star Wars. Para utilizar o aplicativo, basta instalar o arquivo "app.apk" localizado na raiz do projeto ou executar o modo run debug no editor de códigos.
 
-# Aplicativo gerado para o processo seletivo, para rodar deve-se instalar o "app.apk" localizado na raiz do projeto ou executando o modo run debug no editor de codigos.
+O desenvolvimento do aplicativo utiliza as bibliotecas solicitadas, com alguns ajustes na execução do banco de dados sqflite. Isso garante uma boa performance e uma experiência agradável para o usuário.
 
-# Utilizando as bibliotecas solicitadas (falando apenas alguns justes na execução do bando de dados sqflite)
-
+Clone este repositório e experimente você mesmo! Descubra novos detalhes sobre o universo de Star Wars e se torne um verdadeiro fã!
